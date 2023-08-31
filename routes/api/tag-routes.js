@@ -48,6 +48,46 @@ router.post('/', async (req, res) => {
 
 router.put('/:id', (req, res) => {
   // update a tag's name by its `id` value
+  Tag.update(req.body, {
+    where: {
+      id: req.params.id,
+    },
+  })
+    .then((tag) => {
+      if (req.body.tagIds && req.body.tagIds.length) {
+        
+        Tag.findAll({
+          where: { tag_id: req.params.id }
+        }).then((tag) => {
+          // create filtered list of new tag_ids
+          const tagIds = tag.map(({ tag_id }) => tag_id);
+          const newTag = req.body.tagIds
+          .filter((tag_id) => !tagIds.includes(tag_id))
+          .map((tag_id) => {
+            return {
+              tag_id: req.params.id,
+              tag_id,
+            };
+          });
+
+            // figure out which ones to remove
+          const tagToRemove = tag
+          .filter(({ tag_id }) => !req.body.tagIds.includes(tag_id))
+          .map(({ id }) => id);
+                  // run both actions
+          return Promise.all([
+            Tag.destroy({ where: { id: tagToRemove } }),
+            Tag.bulkCreate(newTag),
+          ]);
+        });
+      }
+
+      return res.json(tag);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(400).json(err);
+    });
 });
 
 router.delete('/:id', async (req, res) => {
