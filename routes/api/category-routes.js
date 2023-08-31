@@ -20,11 +20,11 @@ router.get('/:id', async (req, res) => {
   // be sure to include its associated Products
   try {
     const categoryData = await Category.findByPk(req.params.id, {
-      include: [{ model: Product, through: Trip, as: 'location_travellers' }]
+      include: [{ model: Product, through: Category, as: 'category_products' }]
     });
 
     if (!categoryData) {
-      res.status(404).json({ message: 'No location found with this id!' });
+      res.status(404).json({ message: 'No category found with this id!' });
       return;
     }
 
