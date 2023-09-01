@@ -36,15 +36,15 @@ WHEN I test the API I am successfully hitting the ending that allow me to retrie
 
 The following animation was provided to me to illustrate the application's GET routes to return all categories, all products, and all tags being tested in Insomnia:
 
-![In Insomnia, the user tests “GET tags,” “GET Categories,” and “GET All Products.”.](./Assets/13-orm-homework-demo-01.gif)
+![In Insomnia, the user tests “GET tags,” “GET Categories,” and “GET All Products.”.](./assets/13-orm-homework-demo-01.gif)
 
 The following animation illustrates the application's GET routes to return a single category, a single product, and a single tag being tested in Insomnia:
 
-![In Insomnia, the user tests “GET tag by id,” “GET Category by ID,” and “GET One Product.”](./Assets/13-orm-homework-demo-02.gif)
+![In Insomnia, the user tests “GET tag by id,” “GET Category by ID,” and “GET One Product.”](./assets/13-orm-homework-demo-02.gif)
 
 The following animation illustrates the application's POST, PUT, and DELETE routes for categories being tested in Insomnia:
 
-![In Insomnia, the user tests “DELETE Category by ID,” “CREATE Category,” and “UPDATE Category.”](./Assets/13-orm-homework-demo-03.gif)
+![In Insomnia, the user tests “DELETE Category by ID,” “CREATE Category,” and “UPDATE Category.”](./assets/13-orm-homework-demo-03.gif)
 
 My walkthrough video also illustrates the GET, POST, PUT, and DELETE routes for products and tags being tested in Insomnia.
 
@@ -183,3 +183,28 @@ After creating the models and routes, I ran `npm run seed` to seed data to my da
 ### Syncing Sequelize to the Database on Server Start
 
 Inside of `server.js` in order to sync the Sequelize models to the MySQL database on server start, I have created the code needed for it to execute properly.
+
+## Review
+
+This section is here to highlight the required elements needed for review:
+
+* My walkthrough video demonstrating the functionality of the application:
+
+Refer to this [Walkthrough Video](https://drive.google.com/file/d/1HO7iTuOAjod1iqyJ49M3fXk5Qiz573BF/view) to view the functionality of this application
+    
+
+* The URL to my ObjectRelationalMapping GitHub repository, with a unique name and this README to describe the project:
+
+Refer to this link [GitHub Repository](https://github.com/TheKhalidGibson/ObjectRelationalMapping) to view and explore the GitHub repo for this assignment
+
+## Screenshots
+
+The following images reflect the functionality and final results of development for this command-line application:
+    
+![Image showing GET route](./assets/ORM1.png)
+
+![Image showing POST route](./assets/ORM2.png)
+
+![Image showing PUT route](./assets/ORM3.png)
+
+![Image showing My Workbench database properly seeded](./assets/ORM4.png)
